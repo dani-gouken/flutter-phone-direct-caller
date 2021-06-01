@@ -11,14 +11,13 @@ class FlutterPhoneDirectCaller {
     return version;
   }
 
-  static Future<bool?> callNumber(String number) async{
-    return await directCall(number);
+  static Future<bool?> callNumber(String number, {int? simSlot}) async {
+    return await directCall(number, simSlot: simSlot);
   }
 
-  static Future<bool?> directCall(String number) async{
-    final bool? result = await _channel.invokeMethod('callNumber',<String, Object>{
-      'number': number
-    });
+  static Future<bool?> directCall(String number, {int? simSlot}) async {
+    final bool? result = await _channel.invokeMethod(
+        'callNumber', <String, Object?>{'number': number, 'simSlot': simSlot});
     return result;
   }
 }

@@ -33,13 +33,13 @@ class _MyAppState extends State<MyApp> {
             child: TextField(
               controller: _numberCtrl,
               decoration: InputDecoration(labelText: "Phone Number"),
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.phone,
             ),
           ),
           ElevatedButton(
             child: Text("Test Call"),
             onPressed: () async {
-              FlutterPhoneDirectCaller.callNumber(_numberCtrl.text);
+              FlutterPhoneDirectCaller.callNumber(_numberCtrl.text, simSlot: 0);
             },
           )
         ]),
